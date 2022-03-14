@@ -9,9 +9,11 @@ const AboutTemplate = () => (
     </LinkWrapper>
     <S.Heading>My Trips</S.Heading>
     <S.Body>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-      repellendus quo iste architecto, animi labore nam vero error eveniet
-      doloribus quam, quas cum nobis? Ducimus qui officia eligendi omnis ab!
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+        repellendus quo iste architecto, animi labore nam vero error eveniet
+        doloribus quam, quas cum nobis? Ducimus qui officia eligendi omnis ab!
+      </p>
     </S.Body>
   </S.Content>
 )
