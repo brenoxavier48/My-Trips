@@ -5,5 +5,19 @@ const DynamicMap = dynamic(() => import('components/Map'), {
 })
 
 export default function Home() {
-  return <DynamicMap />
+  return (
+    <DynamicMap
+      places={[
+        {
+          id: '1',
+          name: 'Any Place',
+          slug: 'anySlug',
+          location: {
+            latitude: 0,
+            longitude: 0
+          }
+        }
+      ]}
+    />
+  )
 }

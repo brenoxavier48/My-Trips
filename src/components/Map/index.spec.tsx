@@ -1,6 +1,14 @@
 import { render, screen } from '@testing-library/react'
 import Map, { MapPropTypes } from '.'
 
+import { Marker } from 'react-leaflet'
+
+// jest.mock('react-leaflet', () => ({
+//   MapContainer: jest.fn(() => <></>),
+//   TileLayer: jest.fn(() => <></>),
+//   Marker: jest.fn(() => <></>)
+// }))
+
 const makeSut = (props: MapPropTypes = {}) => ({
   Sut: <Map {...props} />
 })
@@ -15,7 +23,7 @@ const makePlaceObject = (customPlaceObject = {}) => ({
   },
   ...customPlaceObject
 })
-
+jest.clearAllMocks
 describe('<Map /> component', () => {
   it('should render without any marker', () => {
     const { Sut } = makeSut()
@@ -37,5 +45,21 @@ describe('<Map /> component', () => {
     const expectedSecondTitle = screen.getByTitle(firstPlace.name)
     expect(expectedFirstTitle).toBeInTheDocument()
     expect(expectedSecondTitle).toBeInTheDocument()
+  })
+
+  it('should pass the correct location to the Marker component', () => {
+    const markerSpy = jest.spyOn(Marker, 'render' as never)
+    const place = makePlaceObject()
+
+    const { Sut } = makeSut({ places: [place] })
+    render(Sut)
+
+    expect(markerSpy).toBeCalledWith(
+      {
+        title: place.name,
+        position: [place.location.latitude, place.location.longitude]
+      },
+      null
+    )
   })
 })
