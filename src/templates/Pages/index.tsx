@@ -7,7 +7,7 @@ const DynamicLinkWrapper = dynamic(() => import('components/LinkWrapper'), {
   ssr: false
 })
 
-const AboutTemplate = () => (
+const PagesTemplate = () => (
   <S.Content>
     <DynamicLinkWrapper href="/">
       <CloseOutline size={32} />
@@ -23,4 +23,4 @@ const AboutTemplate = () => (
   </S.Content>
 )
 
-export default AboutTemplate
+export default PagesTemplate

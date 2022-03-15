@@ -1,8 +1,8 @@
-import AboutTemplate from 'templates/About'
+import PagesTemplate from 'templates/Pages'
 import { GET_PAGES } from 'graphql/queries'
 import client from 'graphql/client'
 
-const About = () => <AboutTemplate />
+const About = () => <PagesTemplate />
 
 export default About
 
