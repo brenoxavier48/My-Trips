@@ -4,7 +4,7 @@ const endpoint = process.env.GRAPHQL_HOST || ''
 
 const client = new GraphQLClient(endpoint, {
   headers: {
-    authorization: `Baerer ${process.env.GRAPHQL_TOKEN}`
+    authorization: `Bearer ${process.env.GRAPHQL_TOKEN}`
   }
 })
 
