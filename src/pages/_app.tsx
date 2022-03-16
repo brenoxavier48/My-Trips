@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import NextNProgress from 'nextjs-progressbar'
 
 import GlobalStyles from 'styles/global'
 
@@ -22,6 +23,7 @@ function App({ Component, pageProps }: AppProps) {
         />
       </Head>
       <GlobalStyles />
+      <NextNProgress color="#29d" options={{ trickleSpeed: 50 }} />
       <Component {...pageProps} />
     </>
   )
