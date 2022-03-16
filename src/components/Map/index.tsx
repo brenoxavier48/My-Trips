@@ -1,17 +1,6 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
-
-type Location = {
-  latitude: number
-  longitude: number
-}
-
-type Place = {
-  id: string
-  name: string
-  slug: string
-  location: Location
-}
+import { Place } from 'domain/abstractions'
 
 export type MapPropTypes = {
   places?: Place[]
