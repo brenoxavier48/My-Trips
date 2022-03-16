@@ -1,9 +1,11 @@
+import { GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
+
 import PagesTemplate, { PageTemplatePropTypes } from 'templates/Pages'
+
 import { GET_PAGES, GET_PAGE_BY_SLUG } from 'graphql/queries'
 import { GetPageResult, GetPageBySlugResult } from 'graphql/types'
 import client from 'graphql/client'
-import { useRouter } from 'next/router'
-import { GetStaticProps } from 'next'
 
 const Page: React.FC<PageTemplatePropTypes> = ({ heading, body }) => {
   const router = useRouter()
