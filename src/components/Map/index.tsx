@@ -1,5 +1,5 @@
 import React from 'react'
-import { MapContainer, TileLayer, Marker } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, MapConsumer } from 'react-leaflet'
 import { Place } from 'domain/abstractions'
 import { useRouter } from 'next/router'
 import { MapWrapper } from './styles'
@@ -22,6 +22,20 @@ const Map: React.FC<MapPropTypes> = ({ places }) => {
         ]}
         style={{ height: '100%', width: '100%' }}
       >
+        <MapConsumer>
+          {(map) => {
+            const width =
+              window.innerWidth ||
+              document.documentElement.clientWidth ||
+              document.body.clientWidth
+
+            if (width < 768) {
+              map.setMinZoom(2)
+            }
+
+            return null
+          }}
+        </MapConsumer>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
