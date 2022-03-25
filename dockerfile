@@ -1,7 +1,11 @@
-FROM node:alpine
+FROM node:latest
 
-WORKDIR app/
+RUN mkdir -p /usr/src/app
 
-COPY . /app
+WORKDIR /usr/src/app
 
-# CMD ["npm", "install"]
+COPY . /usr/src/app
+
+RUN npm install
+
+CMD ["npm", "run", "dev"]
